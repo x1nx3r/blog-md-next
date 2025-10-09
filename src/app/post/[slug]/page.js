@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }) {
   try {
     const post = getPostBySlug(slug);
     return {
-      title: `${post.title} | My Blog`,
+      title: `${post.title} | Mega Nugraha`,
       description: post.summary,
     };
   } catch (error) {
@@ -40,19 +41,51 @@ export default async function PostPage({ params }) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-macchiato-base text-macchiato-text">
-      <div className="flex flex-col min-w-3xl max-w-4xl items-center m-5 p-5 mx-20 mb-8 px-8 pb-8 rounded-sm bg-macchiato-crust">
+    <div className="min-h-screen bg-macchiato-base">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
         <Header />
-        <div className="max-w-4xl min-w-3xl w-full flex flex-row justify-between items-start">
-          <div className="max-w-4xl min-w-3xl w-full markdown-body">
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw]}
-            >
-              {post.content}
-            </ReactMarkdown>
+        
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          {/* Main Content */}
+          <main className="flex-1 order-2 lg:order-1">
+            <article className="bg-macchiato-mantle rounded-lg p-4 md:p-6 lg:p-8 border border-macchiato-surface0">
+              {/* Back link */}
+              <Link 
+                href="/" 
+                className="inline-flex items-center text-xs md:text-sm text-macchiato-subtext0 hover:text-macchiato-text transition-colors mb-4 md:mb-6"
+              >
+                <span className="mr-2">←</span>
+                Back to posts
+              </Link>
+              
+              {/* Post header */}
+              <header className="mb-6 md:mb-8 pb-4 md:pb-6 border-b border-macchiato-surface0">
+                <h1 className="text-2xl md:text-3xl font-bold text-macchiato-text mb-2 md:mb-3">
+                  {post.title}
+                </h1>
+                <div className="flex flex-col sm:flex-row sm:items-center text-xs md:text-sm text-macchiato-subtext0 gap-2 sm:gap-4">
+                  <time className="font-mono">{post.date}</time>
+                  <span className="hidden sm:inline">•</span>
+                  <span>by {post.author}</span>
+                </div>
+              </header>
+              
+              {/* Post content */}
+              <div className="markdown-body">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                >
+                  {post.content}
+                </ReactMarkdown>
+              </div>
+            </article>
+          </main>
+
+          {/* Sidebar */}
+          <div className="lg:w-80 order-1 lg:order-2">
+            <SidebarBox />
           </div>
-          <SidebarBox />
         </div>
       </div>
     </div>

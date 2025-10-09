@@ -16,39 +16,71 @@
     --color-macchiato-subtext0: #a5adcb;
     --color-macchiato-subtext1: #b8c0e0;
     --color-macchiato-text: #cad3f5;
-    --color-lavender: #b7bdf8;
-    --color-blue: #8aadf4;
-    --color-sapphire: #7dc4e4;
-    --color-sky: #91d7e3;
-    --color-teal: #8bd5ca;
-    --color-green: #a6da95;
-    --color-yellow: #eed49f;
-    --color-peach: #f5a97f;
-    --color-maroon: #ee99a0;
-    --color-red: #ed8796;
-    --color-mauve: #c6a0f6;
-    --color-pink: #f5bde6;
-    --color-flamingo: #f0c6c6;
-    --color-rosewater: #f4dbd6;
+    --color-macchiato-lavender: #b7bdf8;
+    --color-macchiato-blue: #8aadf4;
+    --color-macchiato-sapphire: #7dc4e4;
+    --color-macchiato-sky: #91d7e3;
+    --color-macchiato-teal: #8bd5ca;
+    --color-macchiato-green: #a6da95;
+    --color-macchiato-yellow: #eed49f;
+    --color-macchiato-peach: #f5a97f;
+    --color-macchiato-maroon: #ee99a0;
+    --color-macchiato-red: #ed8796;
+    --color-macchiato-mauve: #c6a0f6;
+    --color-macchiato-pink: #f5bde6;
+    --color-macchiato-flamingo: #f0c6c6;
+    --color-macchiato-rosewater: #f4dbd6;
+}
+
+html {
+    background-color: #24273a; /* macchiato-base */
+    overflow-x: hidden;
 }
 
 body {
-    font-family: "EB Garamond", serif;
+    font-family: "Figtree", sans-serif;
+    background-color: #24273a; /* macchiato-base */
+    min-height: 100vh;
+    overscroll-behavior: none; /* Prevents bounce on mobile Safari */
+}
+
+/* Ensure root container also has the background */
+#__next, 
+[data-reactroot] {
+    background-color: #24273a; /* macchiato-base */
+    min-height: 100vh;
+}
+
+/* Utility classes */
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
 }
 
 /* Markdown styles */
 .markdown-body {
-    @apply text-macchiato-text bg-macchiato-mantle leading-relaxed p-5 rounded-sm;
+    @apply text-macchiato-text leading-relaxed;
     font-family: "Figtree", sans-serif;
 }
 
+/* Responsive markdown headings */
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-    @apply text-macchiato-text mt-3 mb-6;
+    @apply text-macchiato-text mt-2 md:mt-3 mb-3 md:mb-6;
     font-family: "Figtree", sans-serif;
     font-weight: 600;
 }
