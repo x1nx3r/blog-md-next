@@ -1,4 +1,5 @@
-import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope, FaReact, FaNodeJs, FaPython, FaDocker, FaLinux } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiFirebase, SiCloudflare } from "react-icons/si";
 
 const projects = [
   {
@@ -19,8 +20,15 @@ const projects = [
 ];
 
 const techStack = [
-  "Next.js", "React", "Node.js", "Python", "TypeScript", 
-  "Docker", "Firebase", "Cloudflare", "Linux"
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "React", icon: FaReact },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "Python", icon: FaPython },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Docker", icon: FaDocker },
+  { name: "Firebase", icon: SiFirebase },
+  { name: "Cloudflare", icon: SiCloudflare },
+  { name: "Linux", icon: FaLinux }
 ];
 
 export default function SidebarBox() {
@@ -65,6 +73,28 @@ export default function SidebarBox() {
         </div>
       </div>
 
+      {/* Tech Stack */}
+      <div className="bg-macchiato-mantle rounded-lg p-3 md:p-4">
+        <h3 className="text-base md:text-lg font-semibold text-macchiato-text mb-2 md:mb-3">
+          Techs That I Use: 
+        </h3>
+        <div className="flex justify-center lg:justify-start space-x-3 md:space-x-4 flex-wrap gap-y-2">
+          {techStack.map((tech, index) => {
+            const IconComponent = tech.icon;
+            return (
+              <div 
+                key={index}
+                className="text-macchiato-subtext0 hover:text-macchiato-text transition-colors"
+                title={tech.name}
+              >
+                <IconComponent size={32} className="md:w-10 md:h-10" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+
       {/* About Section */}
       <div className="bg-macchiato-mantle rounded-lg p-3 md:p-4">
         <h3 className="text-base md:text-lg font-semibold text-macchiato-text mb-2 md:mb-3">
@@ -102,23 +132,7 @@ export default function SidebarBox() {
         </div>
       </div>
 
-      {/* Tech Stack */}
-      <div className="bg-macchiato-mantle rounded-lg p-3 md:p-4">
-        <h3 className="text-base md:text-lg font-semibold text-macchiato-text mb-2 md:mb-3">
-          Tech Stack
-        </h3>
-        <div className="flex flex-wrap gap-1 md:gap-2">
-          {techStack.map((tech, index) => (
-            <span 
-              key={index}
-              className="text-xs bg-macchiato-surface0 text-macchiato-subtext1 px-2 py-1 rounded"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-
+      
     </aside>
   );
 }
