@@ -2,12 +2,15 @@
   "name": "blog-md-next",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "new-post": "node scripts/new-post.js"
+    "new-post": "node scripts/new-post.js",
+    "scrape-linkedin": "node scripts/scrape-linkedin.js",
+    "convert-linkedin": "node scripts/convert-linkedin.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
