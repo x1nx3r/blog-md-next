@@ -7,6 +7,20 @@ import Header from "@/components/Header";
 import SidebarBox from "@/components/SidebarBox";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 
+function formatDate(dateString) {
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return dateString;
+  }
+
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
   return slugs.map((slug) => ({
@@ -15,7 +29,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { slug } = params;
   
   try {
     const post = getPostBySlug(slug);
@@ -31,7 +45,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  const { slug } = await params;
+  const { slug } = params;
   
   let post;
   try {
@@ -41,51 +55,62 @@ export default async function PostPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-macchiato-base">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
+    <div className="min-h-screen newspaper-paper-with-bg newspaper-aged">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10 newspaper-page-curl">
+        <div className="newspaper-folio newspaper-ink-specks">
+          <div className="newspaper-folio-sides">
+            <span className="newspaper-smallcaps">Mega Nugraha Press</span>
+            <span className="newspaper-registration-mark"></span>
+          </div>
+          <span className="newspaper-smallcaps">Special Feature</span>
+          <div className="newspaper-folio-sides">
+            <span className="newspaper-smallcaps">Vol. II</span>
+            <span className="newspaper-dateline">Jakarta Bureau</span>
+            <span className="newspaper-smallcaps">Filed {formatDate(post.date)}</span>
+          </div>
+        </div>
+
         <Header />
-        
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-          {/* Main Content */}
-          <main className="flex-1 order-2 lg:order-1">
-            <article className="bg-macchiato-mantle rounded-lg p-4 md:p-6 lg:p-8 border border-macchiato-surface0">
-              {/* Back link */}
-              <Link 
-                href="/" 
-                className="inline-flex items-center text-xs md:text-sm text-macchiato-subtext0 hover:text-macchiato-text transition-colors mb-4 md:mb-6"
+
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-10">
+          <main className="space-y-8 newspaper-text">
+            <article className="newspaper-ink-specks space-y-6">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.3em] text-gray-600 newspaper-smallcaps hover:text-black transition-colors"
               >
-                <span className="mr-2">←</span>
-                Back to posts
+                <span aria-hidden="true">←</span>
+                Return to newsroom archive
               </Link>
-              
-              {/* Post header */}
-              <header className="mb-6 md:mb-8 pb-4 md:pb-6 border-b border-macchiato-surface0">
-                <h1 className="text-2xl md:text-3xl font-bold text-macchiato-text mb-2 md:mb-3">
-                  {post.title}
-                </h1>
-                <div className="flex flex-col sm:flex-row sm:items-center text-xs md:text-sm text-macchiato-subtext0 gap-2 sm:gap-4">
-                  <time className="font-mono">{post.date}</time>
-                  <span className="hidden sm:inline">•</span>
-                  <span>by {post.author}</span>
-                </div>
-              </header>
-              
-              {/* Post content */}
-              <div className="markdown-body">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  rehypePlugins={[rehypeRaw]}
-                >
+
+              <div className="newspaper-separator"></div>
+
+              <span className="newspaper-section-label">Feature Report</span>
+              <time className="block text-[0.65rem] uppercase tracking-[0.3em] text-gray-600 newspaper-smallcaps">
+                {formatDate(post.date)}
+              </time>
+
+              <h1 className="text-3xl sm:text-4xl font-bold text-black leading-tight newspaper-headline newspaper-vintage-text">
+                {post.title}
+              </h1>
+
+              <div className="text-xs sm:text-sm text-gray-600 newspaper-smallcaps">
+                By <span className="newspaper-ink-underline">{post.author}</span> • Staff Correspondent
+              </div>
+
+              <div className="newspaper-thin-separator"></div>
+
+              <div className="markdown-body newspaper-text newspaper-vintage-text space-y-6">
+                <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                   {post.content}
                 </ReactMarkdown>
               </div>
             </article>
           </main>
 
-          {/* Sidebar */}
-          <div className="lg:w-80 order-1 lg:order-2">
+          <aside className="space-y-6 newspaper-text">
             <SidebarBox />
-          </div>
+          </aside>
         </div>
       </div>
     </div>

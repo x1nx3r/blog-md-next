@@ -1,28 +1,65 @@
 import Link from "next/link";
 
-export default function PostCard({ slug, title, date, summary }) {
+function formatDate(dateString) {
+  try {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  } catch (error) {
+    return dateString;
+  }
+}
+
+export default function PostCard({ slug, title, date, summary, variant = "standard" }) {
+  const formattedDate = formatDate(date);
+
+  const stylesByVariant = {
+    standard:
+      "mb-8 pb-6 border-b border-gray-300 last:border-none", // default column/story layout
+    condensed:
+      "py-4 border-b border-dashed border-gray-400 last:border-none", // sidebar teasers
+    column:
+      "mb-6", // used inside multi-column sections
+  };
+
+  const headingByVariant = {
+    standard: "text-2xl font-bold",
+    condensed: "text-lg font-semibold",
+    column: "text-xl font-semibold",
+  };
+
+  const containerClasses = stylesByVariant[variant] ?? stylesByVariant.standard;
+  const headingClasses = headingByVariant[variant] ?? headingByVariant.standard;
+  const breakStyle = variant === "column" ? { breakInside: "avoid-column" } : {};
+
   return (
-    <article className="bg-macchiato-mantle rounded-lg p-4 md:p-6 hover:bg-macchiato-surface0 transition-colors border border-macchiato-surface0">
-      <Link href={`/post/${slug}`} className="block group">
-        <div className="space-y-2 md:space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <h2 className="text-lg md:text-xl font-semibold text-macchiato-text group-hover:text-macchiato-blue transition-colors">
-              {title}
-            </h2>
-            <time className="text-xs md:text-sm text-macchiato-subtext0 font-mono">
-              {date}
-            </time>
-          </div>
-          
-          <p className="text-sm md:text-base text-macchiato-subtext1 leading-relaxed line-clamp-3">
-            {summary}
-          </p>
-          
-          <div className="flex items-center text-xs md:text-sm text-macchiato-blue group-hover:text-macchiato-sapphire transition-colors">
-            <span>Read more</span>
-            <span className="ml-1 transform group-hover:translate-x-1 transition-transform">→</span>
-          </div>
-        </div>
+    <article
+      className={`newspaper-ink-specks ${containerClasses}`.trim()}
+      style={breakStyle}
+    >
+      <Link href={`/post/${slug}`} className="block group space-y-2">
+        <time
+          className="block text-[0.65rem] uppercase tracking-[0.35em] text-gray-600 newspaper-smallcaps"
+          aria-label={`Published on ${formattedDate}`}
+        >
+          {formattedDate}
+        </time>
+
+        <h3
+          className={`${headingClasses} newspaper-headline newspaper-tight group-hover:underline`}
+        >
+          {title}
+        </h3>
+
+        <p className="text-sm text-gray-700 newspaper-tight leading-relaxed">
+          {summary}
+        </p>
+
+        <span className="inline-block text-xs uppercase tracking-[0.3em] text-gray-700 newspaper-ink-underline group-hover:text-black transition-colors">
+          Read full dispatch →
+        </span>
       </Link>
     </article>
   );

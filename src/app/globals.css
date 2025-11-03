@@ -9,32 +9,6 @@
     --font-times: "Times", "Times New Roman", serif;
     --font-playfair: "Playfair Display", serif;
     --font-crimson: "Crimson Text", serif;
-    --color-macchiato-crust: #181926;
-    --color-macchiato-mantle: #1e2030;
-    --color-macchiato-base: #24273a;
-    --color-macchiato-surface0: #363a4f;
-    --color-macchiato-surface1: #494d64;
-    --color-macchiato-surface2: #5b6078;
-    --color-macchiato-overlay0: #6e738d;
-    --color-macchiato-overlay1: #8087a2;
-    --color-macchiato-overlay2: #939ab7;
-    --color-macchiato-subtext0: #a5adcb;
-    --color-macchiato-subtext1: #b8c0e0;
-    --color-macchiato-text: #cad3f5;
-    --color-macchiato-lavender: #b7bdf8;
-    --color-macchiato-blue: #8aadf4;
-    --color-macchiato-sapphire: #7dc4e4;
-    --color-macchiato-sky: #91d7e3;
-    --color-macchiato-teal: #8bd5ca;
-    --color-macchiato-green: #a6da95;
-    --color-macchiato-yellow: #eed49f;
-    --color-macchiato-peach: #f5a97f;
-    --color-macchiato-maroon: #ee99a0;
-    --color-macchiato-red: #ed8796;
-    --color-macchiato-mauve: #c6a0f6;
-    --color-macchiato-pink: #f5bde6;
-    --color-macchiato-flamingo: #f0c6c6;
-    --color-macchiato-rosewater: #f4dbd6;
     
     /* Newspaper theme colors */
     --color-newspaper-cream: #faf6f0;
@@ -47,13 +21,13 @@
 }
 
 html {
-    background-color: #24273a; /* macchiato-base */
+    background-color: var(--color-newspaper-off-white);
     overflow-x: hidden;
 }
 
 body {
     font-family: "Figtree", sans-serif;
-    background-color: #24273a; /* macchiato-base */
+    background-color: var(--color-newspaper-off-white);
     min-height: 100vh;
     overscroll-behavior: none; /* Prevents bounce on mobile Safari */
 }
@@ -61,7 +35,7 @@ body {
 /* Ensure root container also has the background */
 #__next, 
 [data-reactroot] {
-    background-color: #24273a; /* macchiato-base */
+    background-color: var(--color-newspaper-off-white);
     min-height: 100vh;
 }
 
@@ -83,8 +57,10 @@ body {
 
 /* Markdown styles */
 .markdown-body {
-    @apply text-macchiato-text leading-relaxed;
+    color: rgba(26, 26, 26, 0.88);
+    line-height: 1.75;
     font-family: "Figtree", sans-serif;
+    font-size: 1rem;
 }
 
 /* Responsive markdown headings */
@@ -94,81 +70,97 @@ body {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-    @apply text-macchiato-text mt-2 md:mt-3 mb-3 md:mb-6;
-    font-family: "Figtree", sans-serif;
+    color: rgba(26, 26, 26, 0.95);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-family: "Playfair Display", serif;
     font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .markdown-body h1 {
-    @apply text-4xl;
+    font-size: clamp(2.35rem, 4vw, 3.25rem);
 }
 
 .markdown-body h2 {
-    @apply text-3xl;
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
 }
 
 .markdown-body h3 {
-    @apply text-2xl;
+    font-size: clamp(1.65rem, 2.8vw, 2.15rem);
 }
 
 .markdown-body h4 {
-    @apply text-xl;
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
 }
 
 .markdown-body h5 {
-    @apply text-lg;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
 }
 
 .markdown-body h6 {
-    @apply text-base text-macchiato-subtext0;
+    font-size: 1rem;
+    color: rgba(26, 26, 26, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
 }
 
 .markdown-body p {
-    @apply mb-4 mt-2 text-macchiato-subtext0;
-    font-family: "Figtree", sans-serif;
+    margin: 0.85rem 0;
 }
 
 .markdown-body a {
-    @apply text-blue-500 no-underline;
-    font-family: "Figtree", sans-serif;
+    color: #274060;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(39, 64, 96, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .markdown-body a:hover {
-    @apply underline;
+    color: #152235;
+    border-color: rgba(39, 64, 96, 0.55);
 }
 
 .markdown-body code {
-    @apply bg-macchiato-mantle text-macchiato-text px-1 py-0.5 rounded;
+    background-color: rgba(26, 26, 26, 0.06);
+    color: rgba(26, 26, 26, 0.92);
+    padding: 0.15rem 0.35rem;
+    border-radius: 2px;
+    font-size: 0.95em;
     font-family: "Iosevka", monospace;
 }
 
 .markdown-body pre {
-    @apply bg-macchiato-mantle text-macchiato-subtext0 p-4 rounded-lg overflow-x-auto;
-    font-family: "Figtree", sans-serif;
+    background: rgba(26, 26, 26, 0.08);
+    color: rgba(26, 26, 26, 0.92);
+    padding: 1.25rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    box-shadow: inset 0 0 0 1px rgba(26, 26, 26, 0.1);
 }
 
 .markdown-body pre code {
-    font-family: "Iosevka", monospace;
+    display: block;
+    background: transparent;
+    padding: 0;
 }
 
 .markdown-body blockquote {
-    @apply border-l-4 border-macchiato-crust pl-4 text-macchiato-subtext0 my-4;
-    font-family: "Figtree", sans-serif;
+    border-left: 4px solid rgba(26, 26, 26, 0.3);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: rgba(26, 26, 26, 0.75);
+    font-style: italic;
 }
 
-.markdown-body ul {
-    @apply list-disc list-inside mx-4 mb-4;
-    font-family: "Figtree", sans-serif;
-}
-
+.markdown-body ul,
 .markdown-body ol {
-    @apply list-decimal list-inside mx-4 mb-4;
-    font-family: "Figtree", sans-serif;
+    margin: 1rem 0 1rem 1.5rem;
+    padding-left: 1rem;
 }
 
 .markdown-body li {
-    @apply list-outside mx-4 mb-2;
-    font-family: "Figtree", sans-serif;
+    margin-bottom: 0.5rem;
 }
 
 /* ========================================
@@ -669,6 +661,39 @@ body {
     color: rgba(26, 26, 26, 0.7);
     margin-top: 0.5rem;
     text-align: center;
+}
+
+/* ========================================
+   FRONT PAGE LAYOUT ENHANCEMENTS
+   ======================================== */
+
+/* Spotlight cards for front-page secondary stories */
+.newspaper-spotlight-card {
+    position: relative;
+    border: 1px solid rgba(26, 26, 26, 0.35);
+    background: rgba(250, 246, 240, 0.75);
+    padding: 1.25rem;
+    box-shadow: 1px 1px 0 rgba(26, 26, 26, 0.2), -1px -1px 0 rgba(255, 255, 255, 0.55);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.newspaper-spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 25%, rgba(26, 26, 26, 0.05), transparent 60%);
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.newspaper-spotlight-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.newspaper-spotlight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0 rgba(26, 26, 26, 0.25), -1px -1px 0 rgba(255, 255, 255, 0.65);
 }
 
 /* Typographic refinements */

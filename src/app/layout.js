@@ -33,11 +33,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="bg-macchiato-base">
-      <body className="antialiased bg-macchiato-base min-h-screen">
-        <div className="bg-macchiato-base min-h-screen">
-          {children}
-        </div>
+    <html lang="en">
+      <body className="antialiased min-h-screen bg-[#f6f1e7] text-black">
+        {children}
       </body>
     </html>
   );
