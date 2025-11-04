@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const metadata = {
   title: "1950s Newspaper Design Test | Mega Nugraha",
   description: "Testing a retro 1950s newspaper design for the blog",
@@ -28,7 +30,7 @@ export default function TestPage() {
             THE WANDERING MIND
           </h1>
           <div className="text-lg italic text-gray-700 newspaper-text" style={{ fontFamily: '"Crimson Text", serif' }}>
-            "All the Code That's Fit to Print"
+            &ldquo;All the Code That&apos;s Fit to Print&rdquo;
           </div>
           <div className="text-sm mt-2 text-gray-600 newspaper-faded">
             Established by Mega Nugraha • Circulation: ∞
@@ -58,18 +60,21 @@ export default function TestPage() {
             
             <div className="columns-2 gap-8 text-justify leading-relaxed newspaper-text newspaper-vintage-text newspaper-columns newspaper-ink-specks" style={{ fontFamily: '"Crimson Text", serif' }}>
               <p className="text-lg newspaper-dropcap">
-                In a breakthrough that has stunned the programming community, local developer Mega Nugraha has reportedly perfected the ancient art of "just trying random things until something works."
+                In a breakthrough that has stunned the programming community, local developer Mega Nugraha has reportedly perfected the ancient art of &quot;just trying random things until something works.&quot;
               </p>
               
               <p className="mt-4 newspaper-slight-tilt newspaper-tight">
-                The revolutionary technique, which sources close to the matter describe as "professionally irresponsible yet surprisingly effective," has already been implemented across multiple projects with what Nugraha calls "catastrophic success."
+                The revolutionary technique, which sources close to the matter describe as &quot;professionally irresponsible yet surprisingly effective,&quot; has already been implemented across multiple projects with what Nugraha calls &quot;catastrophic success.&quot;
               </p>
               
               <figure className="mt-5 mb-5 newspaper-ink-specks" style={{ columnSpan: 'all', breakInside: 'avoid' }}>
                 <div className="newspaper-photo" style={{ aspectRatio: '4 / 3' }}>
-                  <img
+                  <Image
                     src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1000&q=60"
                     alt="Vintage typesetter operating a linotype machine"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 </div>
                 <figcaption className="newspaper-photo-caption">
@@ -78,11 +83,11 @@ export default function TestPage() {
               </figure>
 
               <p className="mt-4 newspaper-tight">
-                "I used to waste hours reading documentation," Nugraha explained during a recent interview conducted entirely through Stack Overflow comments. <span className="newspaper-misaligned">"Now I just copy-paste code from GitHub Issues until my terminal stops showing red text."</span>
+                &ldquo;I used to waste hours reading documentation,&rdquo; Nugraha explained during a recent interview conducted entirely through Stack Overflow comments. <span className="newspaper-misaligned">&ldquo;Now I just copy-paste code from GitHub Issues until my terminal stops showing red text.&rdquo;</span>
               </p>
 
               <p className="mt-4 newspaper-slight-tilt newspaper-tight">
-                The methodology, tentatively named "Shotgun Debugging," has drawn criticism from senior developers who argue that such practices could lead to "functioning code" and "satisfied clients" - outcomes they describe as "unprecedented and potentially dangerous."
+                The methodology, tentatively named &quot;Shotgun Debugging,&quot; has drawn criticism from senior developers who argue that such practices could lead to &quot;functioning code&quot; and &quot;satisfied clients&quot; - outcomes they describe as &quot;unprecedented and potentially dangerous.&quot;
               </p>
               
               <p className="mt-4 newspaper-faded newspaper-tight">
@@ -106,7 +111,7 @@ export default function TestPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-black newspaper-misaligned">Docker Containers Escape</h4>
-                  <p className="text-gray-700 text-xs">Local man's laptop overheating, film at 11</p>
+                  <p className="text-gray-700 text-xs">Local man&apos;s laptop overheating, film at 11</p>
                 </div>
                 <div className="newspaper-slight-tilt">
                   <h4 className="font-bold text-black">CSS Grid vs Flexbox</h4>
