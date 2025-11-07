@@ -609,35 +609,44 @@ body {
 }
 
 /**
- * Paper Texture with Background Image (.newspaper-paper-with-bg)
- * - Same paper texture as above but with additional background image support
- * - Includes overlay gradient to maintain readability
- * - Fixed attachment creates parallax-like effect
+ * Paper Texture with Enhanced Background (.newspaper-paper-with-bg)
+ * - Enhanced paper texture using only CSS gradients for fast loading
+ * - Multiple layered gradients create depth and authenticity
+ * - No heavy background images - uses pure CSS for vintage effect
  */
 .newspaper-paper-with-bg {
     background-color: #faf6f0;
     background-image: 
-        /* Paper texture layers (same as above) */
+        /* Enhanced paper texture layers */
         radial-gradient(circle at 20% 30%, rgba(139, 115, 85, 0.02) 1px, transparent 1px),
         radial-gradient(circle at 80% 70%, rgba(139, 115, 85, 0.015) 1px, transparent 1px),
         radial-gradient(circle at 40% 80%, rgba(160, 140, 110, 0.01) 1px, transparent 1px),
+        radial-gradient(circle at 15% 85%, rgba(139, 115, 85, 0.015) 1px, transparent 1px),
+        radial-gradient(circle at 90% 10%, rgba(160, 140, 110, 0.012) 1px, transparent 1px),
+        /* Paper fiber patterns */
         linear-gradient(45deg, transparent 49%, rgba(139, 115, 85, 0.008) 49%, rgba(139, 115, 85, 0.008) 51%, transparent 51%),
         linear-gradient(-45deg, transparent 49%, rgba(139, 115, 85, 0.008) 49%, rgba(139, 115, 85, 0.008) 51%, transparent 51%),
+        linear-gradient(30deg, transparent 49%, rgba(160, 140, 110, 0.006) 49%, rgba(160, 140, 110, 0.006) 51%, transparent 51%),
+        /* Subtle aging spots */
         radial-gradient(ellipse at 70% 20%, rgba(139, 115, 85, 0.02) 1px, transparent 2px),
         radial-gradient(ellipse at 30% 90%, rgba(160, 140, 110, 0.015) 1px, transparent 2px),
-        /* Background image with cream overlay for readability */
-        linear-gradient(rgba(250, 246, 240, 0.85), rgba(250, 246, 240, 0.85)),
-        url('/background.jpg');
+        /* Very subtle cream gradient overlay for depth */
+        linear-gradient(135deg, rgba(250, 246, 240, 0.95), rgba(248, 244, 238, 0.98));
     background-size: 
-        4px 4px, 3px 3px, 5px 5px, 8px 8px, 8px 8px, 15px 10px, 12px 8px,
-        cover, cover; /* Image layers cover full area */
+        4px 4px, 3px 3px, 5px 5px, 6px 6px, 4px 4px,
+        8px 8px, 8px 8px, 12px 12px,
+        15px 10px, 12px 8px,
+        100% 100%;
     background-position: 
-        0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0,
-        center, center; /* Center the background images */
+        0 0, 0 0, 0 0, 0 0, 0 0,
+        0 0, 0 0, 0 0,
+        0 0, 0 0,
+        0 0;
     background-repeat: 
-        repeat, repeat, repeat, repeat, repeat, repeat, repeat,
-        no-repeat, no-repeat; /* Images don't repeat */
-    background-attachment: fixed; /* Parallax effect */
+        repeat, repeat, repeat, repeat, repeat,
+        repeat, repeat, repeat,
+        repeat, repeat,
+        no-repeat;
 }
 
 /* ========================================

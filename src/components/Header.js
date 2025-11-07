@@ -20,7 +20,7 @@ export default function Header() {
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-gray-700 max-w-3xl newspaper-tight">
-          Dispatches from my not-so-latest experiments, exploits, and the occasional wanders to the unkown that's successful enough to be written down.
+          Dispatches from my not-so-latest experiments, exploits, and the occasional wanders to the unkown thats successful enough to be written down.
         </p>
 
         <nav className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-sm uppercase tracking-[0.35em] newspaper-smallcaps text-gray-700">
