@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from 'next/script';
 
 export const metadata = {
   title: "Mega Nugraha - Developer & Problem Creator",
@@ -32,9 +33,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // Use NEXT_PUBLIC_GA_ID in your environment to avoid committing your measurement ID.
+  // If not provided, the placeholder 'G-XXXXXXXXXX' will be used — replace it with your real ID.
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
   return (
     <html lang="en">
       <body className="antialiased min-h-screen bg-[#f6f1e7] text-black">
+        {/* Global Google Analytics (GA4) via gtag.js — loads after hydration */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_ID}', { page_path: window.location.pathname });`,
+          }}
+        />
+
         {children}
       </body>
     </html>
