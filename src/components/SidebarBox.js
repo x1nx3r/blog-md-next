@@ -12,10 +12,10 @@ import {
 import { SiNextdotjs, SiTypescript, SiFirebase, SiCloudflare } from "react-icons/si";
 
 const newsroomContacts = [
-  { label: "GitHub Bureau", href: "https://github.com/x1nx3r", icon: FaGithub },
-  { label: "LinkedIn Desk", href: "https://www.linkedin.com/in/mega-nugraha/", icon: FaLinkedin },
-  { label: "Photo Department", href: "https://www.instagram.com/x1nx3r/", icon: FaInstagram },
-  { label: "Press Tips", href: "mailto:monmega110@gmail.com", icon: FaEnvelope },
+  { label: "GitHub", href: "https://github.com/x1nx3r", icon: FaGithub },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/mega-nugraha/", icon: FaLinkedin },
+  { label: "Instagram", href: "https://www.instagram.com/x1nx3r/", icon: FaInstagram },
+  { label: "Email", href: "mailto:monmega110@gmail.com", icon: FaEnvelope },
 ];
 
 const projects = [
@@ -50,9 +50,9 @@ const techStack = [
 
 export default function SidebarBox() {
   return (
-    <aside className="space-y-8 text-sm newspaper-text">
+    <aside className="space-y-8 text-sm newspaper-text newspaper-vintage-text">
       <section className="newspaper-ink-specks">
-        <span className="newspaper-section-label">Newsroom Directory</span>
+        <span className="newspaper-section-label">My Socials</span>
         <ul className="space-y-3">
           {newsroomContacts.map(({ label, href, icon: Icon }) => (
             <li
@@ -63,43 +63,25 @@ export default function SidebarBox() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-black transition-colors newspaper-smallcaps tracking-[0.3em] text-gray-700"
+                className="flex items-center gap-3 hover:text-black transition-colors newspaper-smallcaps tracking-[0.3em] text-gray-700 newspaper-text"
               >
                 <Icon className="w-4 h-4" aria-hidden="true" />
                 {label}
               </a>
-              <span className="text-[0.65rem] uppercase tracking-[0.3em] text-gray-500">Open</span>
+              <span className="text-[0.65rem] uppercase tracking-[0.3em] text-gray-500 newspaper-smallcaps">Open</span>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="newspaper-ink-specks">
-        <span className="newspaper-section-label">Field Reports</span>
-        <ul className="space-y-4">
-          {projects.map((project) => (
-            <li key={project.name} className="space-y-1">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-black hover:underline newspaper-headline"
-              >
-                {project.name}
-              </a>
-              <p className="text-xs text-gray-700 newspaper-tight">{project.description}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       <section className="newspaper-ink-specks">
-        <span className="newspaper-section-label">Press Credentials</span>
+        <span className="newspaper-section-label">Tech Stacks</span>
         <div className="grid grid-cols-2 gap-3">
           {techStack.map((tech) => (
             <div
               key={tech.name}
-              className="flex items-center gap-3 px-1 py-2 text-gray-700 newspaper-text"
+              className="flex items-center gap-3 px-1 py-2 text-gray-700 newspaper-text newspaper-vintage-text"
             >
               <tech.icon className="w-5 h-5" aria-hidden="true" />
               <span className="text-xs uppercase tracking-[0.2em] newspaper-smallcaps">{tech.name}</span>
@@ -111,10 +93,10 @@ export default function SidebarBox() {
       <div className="newspaper-ad newspaper-ink-specks">
         <div className="newspaper-ad-heading">Newsletter Syndication</div>
         <div className="newspaper-ad-divider"></div>
-        <p className="text-xs uppercase tracking-widest text-gray-700">
+        <p className="text-xs uppercase tracking-widest text-gray-700 newspaper-smallcaps newspaper-text">
           Get the latest dispatches delivered straight to your telegraph.
         </p>
-        <p className="text-sm mt-2">
+        <p className="text-sm mt-2 newspaper-text newspaper-vintage-text">
           Coming soon — reserve your seat on the press wire by reaching out through the Newsroom Directory.
         </p>
       </div>

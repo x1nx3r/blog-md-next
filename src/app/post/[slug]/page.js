@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Header from "@/components/Header";
+import NewspaperFolio from "@/components/NewspaperFolio";
 import SidebarBox from "@/components/SidebarBox";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 
@@ -56,51 +57,50 @@ export default async function PostPage({ params }) {
 
   return (
     <div className="min-h-screen newspaper-paper-with-bg newspaper-aged">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10 newspaper-page-curl">
-        <div className="newspaper-folio newspaper-ink-specks">
-          <div className="newspaper-folio-sides">
-            <span className="newspaper-smallcaps">Mega Nugraha Press</span>
-            <span className="newspaper-registration-mark"></span>
-          </div>
-          <span className="newspaper-smallcaps">Special Feature</span>
-          <div className="newspaper-folio-sides">
-            <span className="newspaper-smallcaps">Vol. II</span>
-            <span className="newspaper-dateline">Jakarta Bureau</span>
-            <span className="newspaper-smallcaps">Filed {formatDate(post.date)}</span>
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-10 newspaper-page-curl">
+        <NewspaperFolio 
+          publicationName="Mega Nugraha Press"
+          date="Special Feature"
+          editionNumber={`Filed ${formatDate(post.date)}`}
+        />
 
         <Header />
 
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-10">
-          <main className="space-y-8 newspaper-text">
-            <article className="newspaper-ink-specks space-y-6">
-              <Link
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+          <main className="lg:col-span-3 newspaper-text newspaper-vintage-text">
+            <article 
+              className="pr-0 lg:pr-8 newspaper-slight-tilt newspaper-ink-specks"
+              style={{ borderRight: "1px solid rgba(107, 107, 107, 0.3)" }}
+            >
+              
+
+              <div className="flex items-center gap-4">
+                <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.3em] text-gray-600 newspaper-smallcaps hover:text-black transition-colors"
-              >
-                <span aria-hidden="true">←</span>
-                Return to newsroom archive
-              </Link>
+                className="inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.3em] text-gray-600 newspaper-smallcaps hover:text-black transition-colors mb-2"
+                >
+                  <span aria-hidden="true">←</span>
+                  Return to newsroom archive
+                </Link>
+                <div className="flex-1"></div>
+                <time className="flex items-center text-[1rem] uppercase tracking-[0.35em] text-gray-600 newspaper-smallcaps mb-2">
+                  {formatDate(post.date)}
+                </time>
+                
+                <span className="newspaper-section-label">Feature Report</span>
+              </div>
 
-              <div className="newspaper-separator"></div>
-
-              <span className="newspaper-section-label">Feature Report</span>
-              <time className="block text-[0.65rem] uppercase tracking-[0.3em] text-gray-600 newspaper-smallcaps">
-                {formatDate(post.date)}
-              </time>
-
-              <h1 className="text-3xl sm:text-4xl font-bold text-black leading-tight newspaper-headline newspaper-vintage-text">
+              <h1 className="text-4xl sm:text-5xl font-bold text-black leading-tight newspaper-headline newspaper-vintage-text newspaper-text mb-4">
                 {post.title}
               </h1>
 
-              <div className="text-xs sm:text-sm text-gray-600 newspaper-smallcaps">
+              <div className="text-sm text-gray-600 newspaper-smallcaps mb-5 newspaper-text">
                 By <span className="newspaper-ink-underline">{post.author}</span> • Staff Correspondent
               </div>
 
-              <div className="newspaper-thin-separator"></div>
+              <div className="newspaper-separator mb-6"></div>
 
-              <div className="markdown-body newspaper-text newspaper-vintage-text space-y-6">
+              <div className="markdown-body columns-1 md:columns-2 gap-8 text-justify leading-relaxed newspaper-text newspaper-vintage-text newspaper-columns">
                 <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                   {post.content}
                 </ReactMarkdown>
