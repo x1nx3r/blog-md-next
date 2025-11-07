@@ -1,11 +1,58 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import SidebarBox from "@/components/SidebarBox";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export const metadata = {
-  title: "About | Mega Nugraha",
-  description: "Learn more about Mega Nugraha - developer, problem creator, and professional procrastinator.",
+  title: "About",
+  description: "Learn more about Mega Nugraha - developer, problem creator, and professional procrastinator. Full-stack developer specializing in Next.js, React, Node.js, Python, and modern web technologies.",
+  keywords: [
+    "Mega Nugraha",
+    "about",
+    "developer",
+    "full-stack developer",
+    "Next.js",
+    "React",
+    "Node.js",
+    "Python",
+    "TypeScript",
+    "Docker",
+    "Firebase",
+    "Cloudflare",
+    "Linux",
+    "portfolio",
+    "skills",
+    "experience",
+    "Indonesia developer"
+  ],
+  authors: [{ name: "Mega Nugraha" }],
+  creator: "Mega Nugraha",
+  openGraph: {
+    type: "profile",
+    url: "https://x1nx3r.dev/about",
+    title: "About Mega Nugraha",
+    description: "Learn more about Mega Nugraha - developer, problem creator, and professional procrastinator. Full-stack developer specializing in modern web technologies.",
+    siteName: "Mega Nugraha's Blog",
+    images: [
+      {
+        url: "/profile-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mega Nugraha - Full-Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Mega Nugraha",
+    description: "Learn more about Mega Nugraha - developer, problem creator, and professional procrastinator.",
+    images: ["/profile-image.jpg"],
+    creator: "@x1nx3r",
+  },
+  alternates: {
+    canonical: "https://x1nx3r.dev/about",
+  },
 };
 
 const skills = [
@@ -61,7 +108,15 @@ export default function AboutPage() {
 
         <Header />
 
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-10">
+        {/* Breadcrumb Navigation */}
+        <Breadcrumbs 
+          items={[
+            { label: "Home", href: "/" },
+            { label: "About", href: null }
+          ]}
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <main className="space-y-10 newspaper-text">
             <section className="newspaper-ink-specks space-y-6">
               <Link
