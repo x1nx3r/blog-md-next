@@ -35,14 +35,18 @@ export default function NewspaperSidebar({ wirePosts = [] }) {
       )}
 
       <div className="newspaper-ad newspaper-ink-specks">
-        <div className="newspaper-ad-heading">Commission Work Accepted</div>
+        <div className="newspaper-ad-heading">Developer For Hire</div>
         <div className="newspaper-ad-divider"></div>
-        <p className="text-xs uppercase tracking-widest text-gray-700">
-          Custom web experiences • Local-first tooling • Overnight turnarounds
+        <p className="text-xs uppercase tracking-widest text-gray-700 newspaper-smallcaps newspaper-text">
+          Full-Stack Development • Cloud Solutions • DevOps Expertise
         </p>
-        <div className="newspaper-ad-price">$29</div>
-        <p className="text-sm newspaper-tight">
-          Secure your slot in the workshop. Mention code <span className="newspaper-ink-underline">LINOTYPE</span> for a complimentary retro favicon polish.
+        <div className="newspaper-ad-price">$15<span className="text-base">/hour</span></div>
+        <p className="text-sm newspaper-tight newspaper-text">
+          <strong>Specializing in:</strong> Next.js, React, Node.js, Python, TypeScript, Docker, Firebase, Cloudflare & Linux systems.
+        </p>
+        <div className="newspaper-ad-divider mt-3"></div>
+        <p className="text-xs newspaper-tight newspaper-text">
+          Ready to tackle your next project. Contact through <span className="newspaper-ink-underline">GitHub</span> or direct mail above.
         </p>
       </div>
     </aside>
