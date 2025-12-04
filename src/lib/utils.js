@@ -6,6 +6,6 @@ export function formatDate(dateString) {
       day: "numeric",
     });
   } catch (error) {
-    return dateString;
+    return dateString;4
   }
 }
