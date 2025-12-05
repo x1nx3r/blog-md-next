@@ -147,6 +147,14 @@ export default function AboutPage() {
           <Header />
         </section>
 
+        {/* Breadcrumb Navigation */}
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "About", href: null },
+          ]}
+        />
+
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
           {/* Main Content - 3 columns */}
