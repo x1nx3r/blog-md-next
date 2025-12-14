@@ -72,7 +72,8 @@ If you've met me, you already know the answer: Winapps with a libvirt backend. I
 
 Honestly? A little magical. Seeing Word, Excel, and PowerPoint show up in the GNOME app grid and launch like native apps never loses its novelty.
 
-*Screenshot placeholder: Word launched from the Linux app menu, decorated with the same shell theme as native apps.*
+![Word launched from the Linux app menu, decorated with the same shell theme as native apps.](https://cdn.x1nx3r.uk/free-bucket/cc7de11a-6dc0-4368-a17f-17c99559d1a3.png)
+*Word launched from the Linux app menu, decorated with the same shell theme as native apps.*
 
 ## But What Did It Cost?
 
@@ -81,7 +82,8 @@ Resource usage depends on the Windows image you choose:
 - **Windows 10 LTSC**: surprisingly smooth with 4 GB RAM and 2 vCPUs.
 - **Windows 11 Enterprise/LTSC**: a hungry beast that wants at least 8 GB RAM and 4 vCPUs to feel snappy.
 
-*Screenshot placeholder: Windows 11 VM idling while swallowing 95% of its assigned memory.*
+![Windows 11 VM idling while swallowing 95% of its assigned memory.](https://cdn.x1nx3r.uk/free-bucket/5342a8ce-7b3f-4bec-8026-ebae2547e622.png)
+*Windows 11 VM idling while swallowing 95% of its assigned memory.*
 
 These requirements are manageable on a modern desktop, but they're worth keeping in mind if you're running a lean setup.
 
