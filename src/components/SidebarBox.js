@@ -9,12 +9,31 @@ import {
   FaDocker,
   FaLinux,
 } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiFirebase, SiCloudflare } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiFirebase,
+  SiCloudflare,
+  SiHuggingface,
+} from "react-icons/si";
 
 const newsroomContacts = [
   { label: "GitHub", href: "https://github.com/x1nx3r", icon: FaGithub },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/mega-nugraha/", icon: FaLinkedin },
-  { label: "Instagram", href: "https://www.instagram.com/x1nx3r/", icon: FaInstagram },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/mega-nugraha/",
+    icon: FaLinkedin,
+  },
+  {
+    label: "Hugging Face",
+    href: "https://huggingface.co/x1nx3r",
+    icon: SiHuggingface,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/x1nx3r/",
+    icon: FaInstagram,
+  },
   { label: "Email", href: "mailto:monmega110@gmail.com", icon: FaEnvelope },
 ];
 
@@ -68,12 +87,13 @@ export default function SidebarBox() {
                 <Icon className="w-4 h-4" aria-hidden="true" />
                 {label}
               </a>
-              <span className="text-[0.65rem] uppercase tracking-[0.3em] text-gray-500 newspaper-smallcaps">Open</span>
+              <span className="text-[0.65rem] uppercase tracking-[0.3em] text-gray-500 newspaper-smallcaps">
+                Open
+              </span>
             </li>
           ))}
         </ul>
       </section>
-
 
       <section className="newspaper-ink-specks">
         <span className="newspaper-section-label">Tech Stacks</span>
@@ -84,7 +104,9 @@ export default function SidebarBox() {
               className="flex items-center gap-3 px-1 py-2 text-gray-700 newspaper-text newspaper-vintage-text"
             >
               <tech.icon className="w-5 h-5" aria-hidden="true" />
-              <span className="text-xs uppercase tracking-[0.2em] newspaper-smallcaps">{tech.name}</span>
+              <span className="text-xs uppercase tracking-[0.2em] newspaper-smallcaps">
+                {tech.name}
+              </span>
             </div>
           ))}
         </div>
@@ -97,7 +119,8 @@ export default function SidebarBox() {
           Get the latest dispatches delivered straight to your telegraph.
         </p>
         <p className="text-sm mt-2 newspaper-text newspaper-vintage-text">
-          Coming soon — reserve your seat on the press wire by reaching out through the Newsroom Directory.
+          Coming soon — reserve your seat on the press wire by reaching out
+          through the Newsroom Directory.
         </p>
       </div>
     </aside>

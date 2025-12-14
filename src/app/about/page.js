@@ -4,6 +4,7 @@ import NewspaperFolio from "@/components/NewspaperFolio";
 import SidebarBox from "@/components/SidebarBox";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { SiHuggingface } from "react-icons/si";
 
 export const metadata = {
   title: "About",
@@ -120,6 +121,11 @@ const socialLinks = [
     label: "Instagram",
     href: "https://www.instagram.com/x1nx3r/",
     icon: FaInstagram,
+  },
+  {
+    label: "Hugging Face",
+    href: "https://huggingface.co/x1nx3r",
+    icon: SiHuggingface,
   },
   { label: "Email", href: "mailto:monmega110@gmail.com", icon: FaEnvelope },
 ];
