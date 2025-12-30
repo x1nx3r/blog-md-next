@@ -5,6 +5,7 @@ excerpt: "Can a tiny 3B model actually think? My experiment with training Llama-
 tags: ["AI", "Machine Learning", "LLM", "Reasoning", "Llama"]
 ---
 
+
 So… I trained (well, duct-taped) a small reasoning model. It's called Llama-3.2-3B-thinking-8k-v1, and yes, the name is longer than its context window deserves.
 
 ## Why?
