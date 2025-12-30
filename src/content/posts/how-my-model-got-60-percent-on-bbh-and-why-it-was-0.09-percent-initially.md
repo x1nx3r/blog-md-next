@@ -1,6 +1,6 @@
 ---
 title: How My Model Got 60% on BBH and Why It Was 0.09% Initially
-date: 2025-12-30
+date: "2025-12-30"
 excerpt: Standard benchmarks often fail to capture a Small Language Model’s true reasoning ability, punishing models for verbose or unconventional output. By using a powerful LLM as a judge, we can accurately evaluate logic rather than formatting. This approach reveals that models once deemed “failures” may actually reason correctly, highlighting the need to prioritize thinking over compliance in AI evaluation.
 tags:
   - AI
