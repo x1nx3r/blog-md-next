@@ -1,5 +1,5 @@
 ---
-title: "The Poor Man's Web Architecture, My Adventure With a Penniless Client"
+title: "Surviving KKN: How to Build a Production Web App When Your Budget is Literally Zero"
 date: "2026-03-21"
 author: "Mega Nugraha"
 summary: "So, last year when I was doing my KKN, I had to engineer something so outrageous, never in my mind did I imagine it could actually work. Now that a pretty long time has passed—and the servers somehow haven't caught fire—let me tell you the story of how I built a secure, production-ready web portal when my budget was literally zero."
