@@ -87,9 +87,14 @@ export default function SidebarBox() {
                 <Icon className="w-4 h-4" aria-hidden="true" />
                 {label}
               </a>
-              <span className="text-[0.65rem] uppercase tracking-[0.3em] text-gray-500 newspaper-smallcaps">
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[0.65rem] uppercase tracking-[0.3em] text-gray-500 newspaper-smallcaps hover:text-black transition-colors"
+              >
                 Open
-              </span>
+              </a>
             </li>
           ))}
         </ul>
@@ -112,17 +117,6 @@ export default function SidebarBox() {
         </div>
       </section>
 
-      <div className="newspaper-ad newspaper-ink-specks">
-        <div className="newspaper-ad-heading">Newsletter Syndication</div>
-        <div className="newspaper-ad-divider"></div>
-        <p className="text-xs uppercase tracking-widest text-gray-700 newspaper-smallcaps newspaper-text">
-          Get the latest dispatches delivered straight to your telegraph.
-        </p>
-        <p className="text-sm mt-2 newspaper-text newspaper-vintage-text">
-          Coming soon — reserve your seat on the press wire by reaching out
-          through the Newsroom Directory.
-        </p>
-      </div>
     </aside>
   );
 }

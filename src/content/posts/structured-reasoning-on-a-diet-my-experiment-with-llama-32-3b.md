@@ -1,7 +1,7 @@
 ---
 title: "Structured Reasoning on a Diet: My Experiment With Llama-3.2-3B"
 date: "2025-09-28"
-excerpt: "Can a tiny 3B model actually think? My experiment with training Llama-3.2-3B-thinking-8k-v1 to perform structured reasoning, inspired by DeepSeek's R1 approach."
+summary: "Can a tiny 3B model actually think? My experiment with training Llama-3.2-3B-thinking-8k-v1 to perform structured reasoning, inspired by DeepSeek's R1 approach."
 tags: ["AI", "Machine Learning", "LLM", "Reasoning", "Llama"]
 ---
 

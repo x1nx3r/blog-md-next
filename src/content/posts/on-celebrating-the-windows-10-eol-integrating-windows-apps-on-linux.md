@@ -1,7 +1,7 @@
 ---
 title: "On Celebrating the Windows 10 EOL: A Venture Into Integrating Windows Apps on Linux"
 date: "2025-10-14"
-excerpt: "Marking Windows 10's sunset by exploring Wine, Winboat, and Winapps to see how far Linux has come at hosting Windows software."
+summary: "Marking Windows 10's sunset by exploring Wine, Winboat, and Winapps to see how far Linux has come at hosting Windows software."
 tags: ["Linux", "Windows", "Virtualization", "Productivity"]
 ---
 

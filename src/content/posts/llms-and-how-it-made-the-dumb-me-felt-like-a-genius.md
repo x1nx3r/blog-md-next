@@ -3,6 +3,7 @@ title: "LLMs and How it Made the Dumb Me Felt Like a Genius"
 date: "2024-03-15"
 author: "Mega Nugraha"
 summary: "Lately, with the convenience of LLM in my humble daily life as a student studying Computer Science in some backwater university in Indonesia..."
+tags: ["AI", "LLM", "Education", "Computer Science"]
 published: true
 ---
 

@@ -3,6 +3,7 @@ title: "Securing SSH With Google, Cloudflare, and No Regrets (Mostly)"
 date: "2025-05-18"
 author: "Muhammad Mega Nugraha"
 summary: "How I overengineered a simple SSH setup using Docker, Cloudflare Tunnels, and Google OAuth because I'm lazy but not reckless."
+tags: ["Security", "SSH", "Cloudflare", "Docker", "Linux"]
 published: true
 ---
 
